@@ -20,6 +20,47 @@
 
 ![11](./Images/11.png)
 
+### visual studio 
+
+* create project >> solution name & project name 
+
+* right click on solution >> add>> create number of projects 
+
+* In one solution containes number of projects
+
+```hello.cs
+
+using System; //console.writeline or read line already execueted //
+
+namespace MyApp //objects classes or methods ni oka container loa place cheyatanni name space use cheastam, multiple features ni apply cheayalamtea a feacture ki a feature specific name estam//
+{
+    internal class Program ////
+    {
+        static void Main(string[] args) //main function//
+        {
+            Console.WriteLine("welcome to python life");
+            
+        }
+    }
+}
+
+```
+* class <classname>: collection of objects
+
+* static:  with out object also we call's any class , variables and method (object used for calls var)
+
+* void: don't expect the any output
+
+* main: 
+
+* string[]args :  zero args also program executes 
+
+* Console.Write: print the output 
+
+* Console.Writeline : print the output in next printed value
+
+
+
 ![12](./Images/12.png)
 
 ![13](./Images/13.png)
@@ -30,11 +71,42 @@
 
 ![16](./Images/16.png)
 
+* string: string is a combination of charectores
+
+
+```.cs
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("welcome to python life");
+            int a = 10;
+            Console.WriteLine(a);
+            float b = 23.5f;
+            Console.WriteLine(b.GetType());
+            bool n = true;
+            Console.WriteLine(n.GetType());
+            char c = 'a';
+            Console.WriteLine('a'.GetType());
+            string s = "welcome to c-sharp";
+           // Console.WriteLine(s.GetType());
+            Console.ReadLine(s.GetType());
+            
+        }
+    }
+}
+```
+
 ![17](./Images/17.png)
 
 ![18](./Images/18.png)
 
 ![19](./Images/19.png)
+
 
 ![20](./Images/20.png)
 
@@ -48,11 +120,24 @@
 
 ![25](./Images/25.png)
 
+* int identifier; (int: data type , identifier= variablename or value)
+
+*  case = variables 
+
+CASE ,case those are okay , but Case its not correct  
+
 ![26](./Images/26.png)
 
 ![27](./Images/27.png)
 
+* int =datatype 
+
+* B= variable
+
+* value=56
+
 ![28](./Images/28.png)
+
 
 ![29](./Images/29.png)
 
@@ -61,6 +146,30 @@
 ![31](./Images/31.png)
 
 ![32](./Images/32.png)
+
+```age.py
+using System;
+using System.Runtime.CompilerServices;
+class program
+{
+    static void Main (string[] args)
+    {
+        variable();
+    }
+    static void variable()
+    {
+        int age = 30;
+        Console.WriteLine("print age is{0} ",age);
+        int age1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("age is {0} age1 is {1}", age , age1);
+    }
+}
+
+o/p: 
+print age is30
+41
+age is 30 age1 is 41
+```
 
 ![33](./Images/33.png)
 
@@ -72,11 +181,190 @@
 
 ![37](./Images/37.png)
 
+### one dimentional array
+
+```
+using System;
+using System.Runtime.CompilerServices;
+class program
+{
+    static void Main (string[] args)
+    {
+        array();
+    }
+    static void array()
+    {
+        int[] intArray1 = new int[5];
+        foreach (int a in intArray1)
+            Console.WriteLine(a + " ");
+        Console.WriteLine();
+        int[] intArray2 = new int[5] { 1,5,71,83,90};
+        foreach(int b in intArray2)
+            Console.WriteLine(b + " ");
+        Console.WriteLine();
+        int[] intArray3 = { 88, 22, 53 };
+        Console.WriteLine("one Dimentional array :");
+        foreach (int d in intArray3)
+            Console.Write(d + " ");
+        Console.WriteLine();       
+    }
+}
+o/p:
+0
+0
+0
+0
+0
+
+1
+5
+71
+83
+90
+
+one Dimentional array :
+88 22 53
+```
+
 ![38](./Images/38.png)
 
 ![39](./Images/39.png)
 
+### 2 dimentional
+```
+using System;
+using System.Runtime.CompilerServices;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        array();
+    }
+
+    static void array()
+    {
+        // Initialize a 2D array with dimensions [3, 2]
+        int[,] _2D = new int[,] { { 3, 4 }, { 1, 4 }, { 2, 4 } };
+
+        Console.WriteLine("2D array elements:");
+
+        // Loop through the rows (3 rows)
+        for (int i = 0; i < 3; i++)
+        {
+            // Loop through the columns (2 columns)
+            for (int j = 0; j < 2; j++)
+            {
+                // Print the value at _2D[i, j]
+                Console.Write(_2D[i, j] + " ");  // Using a space to separate the values in each row
+            }
+            Console.WriteLine();  // Move to the next line after printing each row
+        }
+    }
+}
+
+o/p:
+2D array elements:
+3 4
+1 4
+2 4
+```
+
+### 3 dimentional
+
+```
+using System;
+using System.Runtime.CompilerServices;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        array();
+    }
+
+    static void array()
+    {
+        int[,,] _3D = new int[,,] { { { 1, 2, 3 }, { 2, 3, 4 }, { 3, 4, 5 }, { 4, 5, 6 } } };
+
+        Console.WriteLine("3D elements:");
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 3; j++)
+                for (int k = 0; k < 3; k++)
+            {
+                // Access the elements properly
+                Console.WriteLine($"i = {i}, j = {j}, k = {k},value = {_3D [i, j,k]}");
+            }
+        }
+        Console.WriteLine();
+    }
+}
+
+o/p:
+3D elements:
+i = 0, j = 0, k = 0,value = 1
+i = 0, j = 0, k = 1,value = 2
+i = 0, j = 0, k = 2,value = 3
+i = 0, j = 1, k = 0,value = 2
+i = 0, j = 1, k = 1,value = 3
+i = 0, j = 1, k = 2,value = 4
+i = 0, j = 2, k = 0,value = 3
+i = 0, j = 2, k = 1,value = 4
+i = 0, j = 2, k = 2,value = 5
+```
+
 ![40](./Images/40.png)
+
+### jagged array
+
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        array();
+    }
+
+    static void array()
+    {
+        // Initialize the jagged array
+        int[][] J_A = new int[2][];
+        J_A[0] = new int[5] { 1, 5, 4, 8, 9 };
+        J_A[1] = new int[4] { 2, 2, 6, 7 };  // This sub-array has 4 elements
+
+        Console.WriteLine("Jagged array elements:");
+
+        // Iterate through each array in the jagged array
+        for (int i = 0; i < J_A.Length; i++)
+        {
+            Console.WriteLine("Array " + i + ":");
+
+            // Iterate through each element in the i-th array
+            for (int j = 0; j < J_A[i].Length; j++)
+            {
+                Console.WriteLine("Element [" + i + "," + j + "] = " + J_A[i][j]);
+            }
+        }
+    }
+}
+
+Jagged array elements:
+Array 0:
+Element [0,0] = 1
+Element [0,1] = 5
+Element [0,2] = 4
+Element [0,3] = 8
+Element [0,4] = 9
+Array 1:
+Element [1,0] = 2
+Element [1,1] = 2
+Element [1,2] = 6
+Element [1,3] = 7
+
+```
 
 ![41](./Images/41.png)
 
