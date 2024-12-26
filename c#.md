@@ -380,6 +380,193 @@ Element [1,3] = 7
 
 ![47](./Images/47.png)
 
+### arthematic , relational operators
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        operators();
+    }
+    static void operators()
+    {
+        int a = 25;
+        int b = 5;
+        Console.WriteLine(a + b);
+        Console.WriteLine(a - b);
+        Console.WriteLine(a / b);
+        Console.WriteLine(a % b);
+        Console.WriteLine(a * b);
+        Console.WriteLine("relational operators");
+        Console.WriteLine(a = b);
+        Console.WriteLine(a < b);
+        Console.WriteLine(a > b);
+        Console.WriteLine(a <= b);
+
+    }
+       
+}
+
+o/p:
+30
+20
+5
+0
+125
+relational operators
+5
+False
+False
+True
+```
+
+### assignment operator
+
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        operators();
+    }
+    static void operators()
+    {
+        int a = 25;
+        int b = 5;       
+        Console.WriteLine("assignment  operators");       
+        Console.WriteLine(a = b);
+        Console.WriteLine(a += b);
+        Console.WriteLine(a-= b);
+    }
+       
+}
+o/p:
+assignment  operators
+5
+10
+5
+
+```
+### increment operator
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        operators();
+    }
+    static void operators()
+    {
+        int a = 25;
+        int b = 5;       
+        Console.WriteLine("incrementt  operators");       
+        Console.WriteLine(a = b);
+        Console.WriteLine(a += b);
+        Console.WriteLine(a-= b);
+
+        Console.WriteLine(a++);
+        Console.WriteLine(a);
+        Console.WriteLine(++a);
+    }
+       
+}
+o/p:
+incrementt  operators
+5
+10
+5
+5
+6
+7
+```
+### ternary operator
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        operators();
+    }
+    static void operators()
+    {
+        int a = 25;
+        int b = 5;       
+        Console.WriteLine("unary operator");
+        Console.WriteLine(a > b ? b : a);
+    }
+       
+}
+
+
+o/p: incase a>b then its true ; prints b value 
+unary operator
+5
+```
+### logical operator
+
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        operators();
+    }
+    static void operators()
+    {
+        int a = 25;
+        int b = 5;       
+        Console.WriteLine("logical operator");
+        Console.WriteLine(a > b && a < b);
+        Console.WriteLine(a > b || a < b);
+    }
+       
+}
+
+o/p:
+logical operator
+False
+True
+```
+
+### ternary operator
+
+* not equalto true means it takes flase option automatically 
+
+```
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        operators();
+    }
+    static void operators()
+    {
+        int a = 25;
+        int b = 5;       
+        Console.WriteLine("ternary operator");
+        bool t = true;
+        Console.WriteLine(!t);
+    }
+       
+}
+
+o/p:
+ternary operator
+False
+```
+
 ![48](./Images/48.png)
 
 ![49](./Images/49.png)
