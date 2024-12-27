@@ -1910,7 +1910,49 @@ Year: 2018
 * this = keyword
 
 * 2 parameters calls from using one object calls other parameter
+```
 
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Demo
+    {
+        static Demo()
+        {
+            Console.WriteLine("static constructor");
+        }
+        public Demo(int i)
+        {
+            Console.WriteLine("InstanceConstructor" + i);
+            
+        }
+        
+        public string Demo_detail(string name, int id)
+        {
+            return "Name:" + name + "id:" + id;
+        }
+        public static void Main()
+        {
+            Demo obj = new Demo(1);
+            Console.WriteLine(obj.Demo_detail("python life", 1));
+             Demo obj1 = new Demo(2);
+            Console.WriteLine(obj1.Demo_detail("Demo for Demo",2));
+          
+
+        }
+    }
+}
+o/p":
+static constructor
+InstanceConstructor1
+Name:python lifeid:1
+InstanceConstructor2
+Name:Demo for Demoid:2
+
+```
 
 ![023](./Images/023.png)
 
@@ -1931,21 +1973,722 @@ Year: 2018
 
 ![031](./Images/031.png)
 
+* 
+
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Program
+    {
+        void demo()
+        {
+            Console.WriteLine("access");
+        }
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            p.demo();
+          
+        }
+    }
+ }
+         
+o/p:
+access
+
+```
+
+* for internally we use private also its run
+
+```
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Program
+    {
+         private void demo()
+        {
+            Console.WriteLine("access");
+        }
+        static void Main(string[] args)
+        {
+            Program p = new Program();
+            p.demo();
+          
+        }
+    }
+ }
+         
+o/p:
+access
+```
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Demo
+    {
+        private void Modifier()
+        {
+            Console.WriteLine("private from Demo class");
+        }
+        class Program
+        {
+            private void demo()
+            {
+                Console.WriteLine("access");
+            }
+            static void Main(string[] args)
+            {
+                Program p = new Program();
+                p.demo();
+                p.demo();
+                Console.ReadKey();
+
+            }
+        }
+    }
+}
+o/p:
+access
+access
+```
+
 ![032](./Images/032.png)
 
 ![033](./Images/033.png)
+
+* private
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Demo
+    {
+        private void Modifier()
+        {
+            Console.WriteLine("private from Demo class");
+        }
+        class Program
+        {
+            private void demo()
+            {
+                Console.WriteLine("access");
+            }
+            static void Main(string[] args)
+            {
+                Program p = new Program();
+                p.demo();
+                Demo k = new Deo();
+                k.Modifier();
+                Console.ReadKey();
+
+            }
+        }
+    }
+}
+o/p:
+access
+
+```
+#### internal 
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Demo
+    {
+        internal void Modifier()
+        {
+            Console.WriteLine("private from Demo class");
+        }
+        class Program
+        {
+            private void demo()
+            {
+                Console.WriteLine("access");
+            }
+            static void Main(string[] args)
+            {
+                Program p = new Program();
+                p.demo();
+                Demo k =new Demo();
+                k.Modifier();
+                Console.ReadKey();
+
+            }
+        }
+    }
+}
+o/p:
+access
+private from Demo class
+```
+
+
+#### protected
+
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Demo
+    {
+        protected void Modifier()
+        {
+            Console.WriteLine("private from Demo class");
+        }
+        class Program
+        {
+            private void demo()
+            {
+                Console.WriteLine("access");
+            }
+            static void Main(string[] args)
+            {
+                Program p = new Program();
+                p.demo();
+                Demo k =new Demo();
+                k.Modifier();
+                Console.ReadKey();
+
+            }
+        }
+    }
+}
+o/p:
+access
+private from Demo class
+
+```
 
 ![034](./Images/034.png)
 
 ![035](./Images/035.png)
 
 ![036](./Images/036.png)
+### single level inheretance 
+
+```
+using System;
+
+namespace Inheritance 
+{
+    class Base
+    {
+        public void Show()
+        {
+            Console.WriteLine("base class");
+        }
+    class Derived : Base
+        {
+            public void Display()
+            {
+                Console.WriteLine("Derived class");
+            }
+        }
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            Derived a = new Derived();
+            a.Display();
+            a.Show();
+        }
+    }
+}
+o/p:
+Hello World!
+Derived class
+base class
+
+```
 
 ![037](./Images/037.png)
 
+#### multi level inheritance 
+
+```
+using System;
+
+namespace Inheritance 
+{
+    class UpperBase
+    {
+        public void Upshow()
+        {
+            Console.WriteLine("upperbase class");
+        }
+    class Base : UpperBase
+        { 
+           public void Show()
+        {
+            Console.WriteLine("Base classes");
+        }
+    }
+    class Derived : Base
+        {
+            public void Display()
+            {
+                Console.WriteLine("Derived class");
+            }
+        }
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            Derived a = new Derived();
+            a.Display();
+            a.Show();
+            a.Upshow();
+        }
+    }
+}
+ o/p:
+ Hello World!
+Derived class
+Base classes
+upperbase class
+```
+
 ![038](./Images/038.png)
+
+### 
+```
+using System;
+
+namespace Inheritance 
+{
+    class UpperBase
+    {
+        public void Upshow()
+        {
+            Console.WriteLine("upperbase class");
+        }
+    class Base : UpperBase
+        { 
+           public void Show()
+        {
+            Console.WriteLine("Base classes");
+                Base a = new Base();
+                a.Upshow();
+                a.Show();
+
+            }
+    }
+        
+    class Derived : UpperBase
+        {
+            public void Display()
+            {
+                Console.WriteLine("Derived class");
+            }
+        }
+        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            Derived a = new Derived();
+            a.Display();
+            a.Upshow();
+        }
+    }
+}
+o/p:
+Hello World!
+Derived class
+upperbase class
+```
 
 ![039](./Images/039.png)
 
 ![040](./Images/040.png)
+
+* in c# not inherites the multiple base classes into one class
+```
+using System;
+
+namespace MultipleInheritance
+{
+    // Define Interface 1
+    interface Inter1
+    {
+        void Show();
+    }
+
+    // Define Interface 2
+    interface Inter2
+    {
+        void Display();
+    }
+
+    // Base class implementing Inter1
+    class Base1 : Inter1
+    {
+        public void Show()
+        {
+            Console.WriteLine("Base 1 class method");
+        }
+    }
+
+    // Base class implementing Inter2
+    class Base2 : Inter2
+    {
+        public void Display()
+        {
+            Console.WriteLine("Base 2 class method");
+        }
+    }
+
+    // Derived class implementing both Inter1 and Inter2
+    class Derived : Inter1, Inter2
+    {
+        Base1 obj1 = new Base1();
+        Base2 obj2 = new Base2();
+
+        public void Show()
+        {
+            obj1.Show();
+        }
+
+        public void Display()
+        {
+            obj2.Display();
+        }
+    }
+
+    // Program class with Main method
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Derived class");
+            Derived derivedObj = new Derived();
+            derivedObj.Show();    // Calls Show() from Base1
+            derivedObj.Display(); // Calls Display() from Base2
+
+            Console.ReadKey();
+        }
+    }
+}
+
+
+o/p:
+Derived class
+Base 1 class method
+Base 2 class method
+
+```
+
+![041](./Images/041.png)
+
+### hybrid Inheritance 
+
+```
+
+using System;
+
+namespace HybridInheritance
+{
+    // Define Interface 1
+    interface Inter1
+    {
+        void Show();
+    }
+
+    // Define Interface 2
+    interface Inter2
+    {
+        void Display();
+    }
+
+    // Base class (Single inheritance)
+    class Base1 : Inter1
+    {
+        public void Show()
+        {
+            Console.WriteLine("Base 1 class method");
+        }
+    }
+
+    // Base class (Single inheritance)
+    class Base2 : Inter2
+    {
+        public void Display()
+        {
+            Console.WriteLine("Base 2 class method");
+        }
+    }
+
+    // Derived class inheriting from Base1 (Single inheritance) and implementing Inter2 (Multiple interfaces)
+    class Derived : Base1, Inter2
+    {
+        Base2 obj2 = new Base2();
+
+        // Override Show() from Base1
+        public new void Show()
+        {
+            base.Show(); // Calls Base1's Show
+        }
+
+        // Implement Display() from Inter2
+        public void Display()
+        {
+            obj2.Display(); // Calls Base2's Display
+        }
+    }
+
+    // Program class with Main method
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Derived derivedObj = new Derived();
+
+            // Calling Show from Base1 (single inheritance)
+            derivedObj.Show();
+
+            // Calling Display from Base2 (interface implementation)
+            derivedObj.Display();
+
+            Console.ReadKey();
+        }
+    }
+}
+
+o/p:
+Base 1 class method
+Base 2 class method
+```
+
+### poly marphisam
+
+![/I)](./Images/042.png)
+
+
+![hema](./Images/043.png)
+
+* we want some out put for that purpose we use multiple functions is called polymarphisum
+
+![hema](./Images/044.png)
+
+![hema](./Images/045.png)
+
+![hema](./Images/046.png)
+
+![hema](./Images/047.png)
+
+![hema](./Images/048.png)
+
+![hema](./Images/049.png)
+
+![hema](./Images/050.png)
+
+
+
+```
+using System;
+
+namespace PolymorphismExample
+{
+    // Base class
+    class Calculator
+    {
+        // Method to add two integers (Method 1)
+        public int Add(int a, int b)
+        {
+            return a + b;
+        }
+
+        // Method to add three integers (Method 2) - Overloaded method
+        public int Add(int a, int b, int c)
+        {
+            return a + b + c;
+        }
+
+        // Method to add two floating-point numbers (Method 3) - Overloaded method
+        public double Add(double a, double b)
+        {
+            return a + b;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator calc = new Calculator();
+
+            // Calling the Add method with two integers
+            int sum1 = calc.Add(10, 20);
+            Console.WriteLine("Sum of two integers: " + sum1);
+
+            // Calling the Add method with three integers (Overloaded method)
+            int sum2 = calc.Add(10, 20, 30);
+            Console.WriteLine("Sum of three integers: " + sum2);
+
+            // Calling the Add method with two doubles (Overloaded method)
+            double sum3 = calc.Add(10.5, 20.5);
+            Console.WriteLine("Sum of two doubles: " + sum3);
+
+            Console.ReadKey();
+        }
+    }
+}
+
+o/p:
+Sum of two integers: 30
+Sum of three integers: 60
+Sum of two doubles: 31
+```
+incase sum of doble values is given integers also it;'s working
+
+### unary overloading
+
+```
+using System;
+
+namespace OperatorOverloadingExample
+{
+    // Define a class representing a Point with x and y coordinates
+    class Point
+    {
+        public int x, y;
+
+        // Constructor to initialize the Point
+        public Point(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        // Overload the unary minus (-) operator
+        public static Point operator -(Point p)
+        {
+            return new Point(-p.x, -p.y); // Negating both x and y
+        }
+
+        // Overload the unary increment (++) operator
+        public static Point operator ++(Point p)
+        {
+            p.x++;
+            p.y++;
+            return p;
+        }
+
+        // Method to display the point's coordinates
+        public void Display()
+        {
+            Console.WriteLine($"Point: ({x}, {y})");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Point p1 = new Point(5, 10);
+            p1.Display();  // Output: Point: (5, 10)
+
+            // Use overloaded unary minus operator
+            Point p2 = -p1; // Negating p1
+            p2.Display();  // Output: Point: (-5, -10)
+
+            // Use overloaded unary increment operator
+            Point p3 = ++p1; // Increment p1
+            p3.Display();  // Output: Point: (6, 11)
+
+            Console.ReadKey();
+        }
+    }
+}
+o/p:
+Point: (5, 10)
+Point: (-5, -10)
+Point: (6, 11)
+
+```
+
+### binary overloading
+
+```
+using System;
+
+namespace OperatorOverloadingExample
+{
+    // Define a class representing a Point with x and y coordinates
+    class Point
+    {
+        public int x, y;
+
+        // Constructor to initialize the Point
+        public Point(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        // Overload the binary plus (+) operator to add two points
+        public static Point operator +(Point p1, Point p2)
+        {
+            return new Point(p1.x + p2.x, p1.y + p2.y);
+        }
+
+        // Method to display the point's coordinates
+        public void Display()
+        {
+            Console.WriteLine($"Point: ({x}, {y})");
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Point p1 = new Point(5, 10);
+            Point p2 = new Point(3, 4);
+
+            p1.Display();  // Output: Point: (5, 10)
+            p2.Display();  // Output: Point: (3, 4)
+
+            // Use overloaded binary plus operator to add points
+            Point p3 = p1 + p2; // Adding two points together
+            p3.Display();  // Output: Point: (8, 14)
+
+            Console.ReadKey();
+        }
+    }
+}
+o/p:
+Point: (5, 10)
+Point: (3, 4)
+Point: (8, 14)
+```
+
+
+
 
