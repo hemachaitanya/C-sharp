@@ -585,7 +585,212 @@ False
 
 ![56](./Images/56.png)
 
+### string
+
+* String used as class (capital "S")
+
+* string is a keyword (small "s")
+
+* syntax:
+
+        string[] variable_name = "value/text"
+
+##### reference type
+
+* once we enter the data , its not stored directly to the memory ; its saves the memory path where address file
+
+##### immutable
+
+* once we declare we cannot change another time
+
+
+##### containes null:
+
+
+##### i overloads the operator (==):
+
+polymorphysum we used some over loading 
+
+
+
 ![57](./Images/57.png)
+
+* to creating string using concadination one variable adds the another variable by using '+'  symbol
+
+```.py
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Strings();
+        }
+        static void Strings()
+        {
+            string a = "wecome to 42443";
+             Console.WriteLine(a);
+            
+        }
+    }
+}
+o/p:
+wecome to 42443
+```
+
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Strings();
+        }
+        static void Strings()
+        {
+            string a = "wecome to 42443";
+             Console.WriteLine(a);
+            // array variable 
+            string[] b = new string[4]; // we declare firt with array size
+            b[0] = "hey ram";
+            b[1] = "how are you yar";
+            b[2] = "by the way this is your mobile! ";
+            b[3] = "9966445588";
+            for (int i = 0;i<4; i++)
+                Console.WriteLine(b[i]);
+            
+        }
+    }
+} 
+o/p:
+wecome to 42443
+hey ram
+how are you yar
+by the way this is your mobile!
+9966445588
+```
+* we add some string byy using + symbole for concatiation (to modify )
+
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Strings();
+        }
+        static void Strings()
+        {
+            string a = "wecome to 42443";
+             Console.WriteLine(a);
+            // array variable 
+            string[] b = new string[4]; // we declare firt with array size
+            b[0] = "hey ram";
+            b[1] = "how are you yar";
+            b[2] = "bythe way this is your mobile! ";
+            b[3] = "9966445588";
+            for (int i = 0;i<4; i++)
+                Console.WriteLine(b[i]);
+
+            // concotination 
+
+            string abc = b[2] + b[1]+" is good";
+            Console.WriteLine(abc);
+            
+        }
+    }
+}
+o/p:
+wecome to 42443
+hey ram
+how are you yar
+bythe way this is your mobile!
+9966445588
+bythe way this is your mobile! how are you yar is good
+```
+```concadination
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Strings();
+        }
+        static void Strings()
+        {
+            string a = "wecome to 42443";
+             Console.WriteLine(a);
+            // array variable 
+            string[] b = new string[4]; // we declare firt with array size
+            b[0] = "hey ram";
+            b[1] = "how are you yar";
+            b[2] = "bythe way this is your mobile! ";
+            b[3] = "9966445588";
+            for (int i = 0;i<4; i++)
+                Console.WriteLine(b[i]);
+
+            // concotination 
+
+            string abc = b[2] + b[1]+" is good";
+            Console.WriteLine(abc);
+            int t = 100;
+            string f = String.Format("{0}{1}", a, t.ToString());
+            Console.WriteLine(f);
+            
+        }
+    }
+}
+o/p:
+wecome to 42443
+hey ram
+how are you yar
+bythe way this is your mobile!
+9966445588
+bythe way this is your mobile! how are you yar is good
+wecome to 42443100
+```
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Strings();
+        }
+        static void Strings()
+        {
+            Console.WriteLine("enter your name");
+            string name = Console.ReadLine();
+            Console.WriteLine(name);
+
+        }
+    }
+}
+o/p:
+enter your name
+<hema>
+hema
+```
+
+
+*  create a string by Formate : in string class we have formate method , from this formate through also we  create a string ,
+
+* by using for loops and creating the string (user-input)
+
 
 ![58](./Images/58.png)
 
@@ -593,9 +798,12 @@ False
 
 ![60](./Images/60.png)
 
+
 ![61](./Images/61.png)
 
 ![62](./Images/62.png)
+
+* 
 
 ![63](./Images/63.png)
 
