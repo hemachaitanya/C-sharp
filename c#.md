@@ -617,7 +617,7 @@ polymorphysum we used some over loading
 
 * to creating string using concadination one variable adds the another variable by using '+'  symbol
 
-```.py
+```
 using System;
 
 namespace MyApp
@@ -803,7 +803,13 @@ hema
 
 ![62](./Images/62.png)
 
-* 
+* IMPLICITE: small datatype converted to large data type(int a=10 ; string b = Convert.ToString(a);)
+
+string = variable
+Convert = class
+toString = datatype
+
+* EXPLICIT : large data type to small data type ()
 
 ![63](./Images/63.png)
 
@@ -813,28 +819,345 @@ hema
 
 ![66](./Images/66.png)
 
+```implicit no dataloss
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            TypeConversion();
+        }
+        static void TypeConversion()
+        {
+            int a = 10;
+            float b = a;
+            Console.WriteLine(b);
+       
+
+        }
+    }
+}
+o/p:
+10
+
+```
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            TypeConversion();
+        }
+        static void TypeConversion()
+        {
+            float a = 43.47f;
+            int b = Convert.ToInt32(a);
+            Console.WriteLine(b);
+
+        }
+    }
+}
+//data loss will happends0.47
+o/p:
+43
+```
+```explicite(float-string)
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            TypeConversion();
+        }
+        static void TypeConversion()
+        {
+            float a = 43.47f;
+            string s = Convert.ToString(a);
+            Console.WriteLine("float to string conversion{0}",s);
+
+        }
+    }
+}
+o/p:
+float to string conversion43.47
+```
+
 ![67](./Images/67.png)
 
 ![68](./Images/68.png)
 
 ![69](./Images/69.png)
 
+* ex: enter to the organization one condition is there ,  that is id card is needed
+
 ![70](./Images/70.png)
 
 
 ![71](./Images/71.png)
+* when conditon is true the only its prints the value other wise condition is false o/p is null
+
+```if
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+        }
+        static void Control()
+        {
+            int a = 13;
+            int b = 3;
+            if (a>b)
+            {
+                Console.WriteLine("a is big");
+
+            }
+        }
+    }
+}
+// condition true only prints the statemeno/p:
+a is big
+```
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+            Console.WriteLine("just learn c#");
+        }
+        static void Control()
+        {
+            int a = 13;
+            int b = 3;
+            if (a<b)
+            {
+                Console.WriteLine("b is big");
+
+            }
+            else
+            {
+                Console.WriteLine("a is big");
+            }
+
+        }
+    }
+}
+o/p:
+a is big
+just learn c#
+```
 
 ![72](./Images/72.png)
 
 ![73](./Images/73.png)
+if a=3; b=1 ; c=4 at that time this condition not itterate s ;
+
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+            Console.WriteLine("just learn c#");
+        }
+        static void Control()
+        {
+            int a = 13;
+            int b = 33;
+            int c = 92;
+            if (a > b)
+            {
+                Console.WriteLine("a is big");
+
+            }
+            else if (b > c) 
+            {
+                Console.WriteLine("b is big");
+            }
+            else
+            {
+                Console.WriteLine("c is big");
+            }
+
+        }
+    }
+}
+o/p:
+c is big
+just learn c#
+```
+
 
 ![74](./Images/74.png)
+
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+            Console.WriteLine("just learn c#");
+        }
+        static void Control()
+        {
+            int a = 43;
+            int b = 53;
+            int c = 92;
+            if (a < b)
+            {
+                if (b < c)
+                    Console.WriteLine("c is big ");
+            }
+            else if (b < c)
+            {
+                Console.WriteLine("b is big");
+            }
+            else
+            {
+                Console.WriteLine("c is big");
+            }
+
+        }
+    }
+}
+o/p:
+c is big
+```
+
+
 
 ![75](./Images/75.png)
 
 ![76](./Images/76.png)
 
 ![77](./Images/77.png)
+
+```
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter a number between 1 and 5:");
+        int number = int.Parse(Console.ReadLine());
+
+        // Switch statement to evaluate the number
+        switch (number)
+        {
+            case 1:
+                Console.WriteLine("You entered One");
+                break;
+            case 2:
+                Console.WriteLine("You entered Two");
+                break;
+            case 3:
+                Console.WriteLine("You entered Three");
+                break;
+            case 4:
+                Console.WriteLine("You entered Four");
+                break;
+            case 5:
+                Console.WriteLine("You entered Five");
+                break;
+            default:
+                Console.WriteLine("Invalid number! Please enter a number between 1 and 5.");
+                break;
+        }
+    }
+}
+o/p:
+Enter a number between 1 and 5:
+3
+You entered Three
+```
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+            Console.WriteLine("Just learning C#");
+        }
+
+        static void Control()
+        {
+            int a = 43;
+            int b = 93;
+            int c = 92;
+
+            // Correct the conditional logic
+            if (a < b)
+            {
+                Console.WriteLine("a is less than b");
+            }
+            else if (b < c)
+            {
+                Console.WriteLine("b is less than c");
+            }
+            else
+            {
+                Console.WriteLine("None of the conditions matched");
+            }
+
+            Console.WriteLine("Enter a number (1 or 2):");
+            int h = Convert.ToInt32(Console.ReadLine());
+
+            // Switch statement based on the user's input
+            switch (h)
+            {
+                case 1:
+                    Console.WriteLine("You entered case 1");
+                    break;
+                case 2:
+                    Console.WriteLine("You entered case 2");
+                    break;
+                default:
+                    Console.WriteLine("Invalid input! Enter a valid number.");
+                    break;
+            }
+        }
+    }
+}
+
+o/p:
+a is less than b
+Enter a number (1 or 2):
+2
+You entered case 2
+Just learning C#
+```
 
 ![78](./Images/78.png)
 
