@@ -1165,17 +1165,239 @@ Just learning C#
 
 ![80](./Images/80.png)
 
----
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+        }
+
+        static void Control()
+        {
+            int i = 0;
+            while(i<3)
+            {
+                Console.WriteLine("while {0}", i);
+                i++;
+            }
+        }
+           
+    }
+}
+
+o/p:
+while 0
+while 1
+while 2
+```
 
 ![81](./Images/81.png)
 
+
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+        }
+
+        static void Control()
+        {
+            int i = 0;
+            do
+            {
+                Console.WriteLine("while{0}", i);
+                i++;
+            }
+            while (i < 3);
+                
+        }
+           
+    }
+}
+
+o/p:
+while0
+while1
+while2
+```
+* in case we pass the condition wrongly then also loop not existed but first one statement is existed one time 
+
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+        }
+
+        static void Control()
+        {
+            int i = 0;
+            do
+            {
+                Console.WriteLine("while{0}", i);
+                i++;
+            }
+            while (i < 0);
+                
+        }
+           
+    }
+}
+o/p:
+while0
+```
+
 ![82](./Images/82.png)
+```
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+        }
+
+        static void Control()
+        {
+           for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(i);
+            }
+                
+        }
+           
+    }
+}
+
+o/p:
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+```
 
 ![83](./Images/83.png)
+```
+//nested for
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+        }
+
+        static void Control()
+        {
+            // Correct 2D array initialization with 2 rows and 2 columns
+            int[,] d = new int[,] { { 1, 2 }, { 1, 1 } };
+
+            Console.WriteLine("Array values are:");
+
+            // Loop through the rows of the array
+            for (int i = 0; i < d.GetLength(0); i++)  // GetLength(0) gives the number of rows
+            {
+                // Loop through the columns of the array
+                for (int j = 0; j < d.GetLength(1); j++)  // GetLength(1) gives the number of columns
+                {
+                    Console.WriteLine(d[i, j]); // Print each element
+                }
+            }
+        }
+    }
+}
+
+o/p:
+Array values are:
+1
+2
+1
+1
+
+```
 
 ![84](./Images/84.png)
 
+```
+//infinate loop
+using System;
+
+namespace MyApp
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Control();
+        }
+
+        static void Control()
+        {
+                for (; ; )
+                    Console.WriteLine("error");
+            
+        }
+    }
+}
+o/p:
+error
+.....infinite times prints
+```
+* cntl+kc
+
+* its used for multiple lines selected and commented at a time
+
+
 ![85](./Images/85.png)
+```
+using System;
+namespace MyApp
+{ 
+    internal class Program
+    {
+        static void Main(string[] args)
+        {A:
+            Console.WriteLine("just learn c#");
+            int f = 1;
+            if (f == 1)
+            {
+                goto A;
+            }
+        }                  
+    }
+}
+o/p:
+just learn c#
+..... infinate times its prints 
+```
 
 ![86](./Images/86.png)
 
@@ -1212,7 +1434,68 @@ Just learning C#
 
 ![02](./Images/02.png)
 
+#### create class
+
+* in name spaces we can create number of classes
+
+* every classes access through attributes only
+
+```
+using System;
+namespace python_life
+{
+    class Dog
+    {
+        public int a = 10;
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dog crypto = new Dog();
+            crypto.a++;
+            Console.WriteLine(crypto.a);
+          
+        }
+    }
+}
+o/p:
+11
+// with out crypto.a++;
+o/p:
+10
+
+```
+
 ![03](./Images/03.png)
+
+```
+using System;
+using System.Security.Cryptography.X509Certificates;
+namespace python_life
+{
+    class Dog
+    {
+        public int a = 10;
+        public void pet(string name, int age , string colur)
+        {
+            Console.WriteLine("pet name is:"+name +"age is"+age+"colour is" +colur);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dog crypto = new Dog();
+            crypto.pet("puppy",5,"block");
+          
+        }
+    }
+}
+
+o/p:
+pet name is:puppyage is5colour isblock
+```
 
 ![04](./Images/04.png)
 
@@ -1230,6 +1513,222 @@ Just learning C#
 
 
 ![011](./Images/011.png)
+
+* 
+```
+using System;
+using System.Security.Cryptography.X509Certificates;
+namespace python_life
+{
+    class program
+    {
+        static void Named(int a, int b)
+        {
+            Console.WriteLine("sum =" + (a + b));
+        }
+        static void Main(string[] args)
+        {
+            Named(a: 12, b: 2);
+        }
+    }
+}
+o/p:
+sum = 14
+```
+### named parameter
+
+```
+using System;
+using System.Security.Cryptography.X509Certificates;
+namespace python_life
+{
+    class program
+    {
+        static void Named(int a, int b)
+        {
+            Console.WriteLine("sum =" + (a + b));
+        }
+        static void refs (ref int v1)
+        {
+            Console.WriteLine("Increment"+ ++v1);
+        }
+        static void Main(string[] args)
+        {
+            int v = 3;
+            refs(ref v);
+        }
+    }
+}
+o/p:
+Increment 4(here v =3 but ++3=4)
+```
+
+### with out initialization we passed the parameter
+
+```
+using System;
+using System.Security.Cryptography.X509Certificates;
+namespace python_life
+{
+    class program
+    {
+        static void Named(int a, int b)
+        {
+            Console.WriteLine("sum =" + (a + b));
+        }
+        static void outs(out int v)
+        {
+            v = 12;
+            Console.WriteLine("Increment"+ ++v);
+        }
+        static void Main(string[] args)
+        {
+            int v = 5;
+            outs(out v);
+        }
+    }
+}
+o/p:
+increment13
+```
+#### default parameter
+
+* sum will be printed two times firt time it takes 2 value 
+
+next we gave only a, but b value already declared in int b=10
+
+
+```
+using System;
+using System.Security.Cryptography.X509Certificates;
+namespace python_life
+{
+    class program
+    {
+        static void Default(int a, int b =10)
+        {
+            Console.WriteLine("sum =" + (a + b));
+        }
+        static void outs(out int v)
+        {
+            v = 12;
+            Console.WriteLine("Increment"+ ++v);
+        }
+        static void Main(string[] args)
+        {
+            int v = 5;
+            Default(20, 2);
+            Default(2);
+             outs(out v);
+            Console.WriteLine(v);
+        }
+    }
+}
+
+o/p:
+sum =22
+sum =12
+Increment13
+13
+
+```
+
+#### dynamic parametes 
+
+* 
+```
+using System;
+using System.Security.Cryptography.X509Certificates;
+namespace python_life
+{
+    class program
+    {
+       static void dynmic(dynamic d)
+           {
+            int A=d*d;
+            Console.WriteLine(A);
+        }
+        static void Main(string[] args)
+        {
+            dynmic(49);
+            // where this value is stored
+
+        }
+    }
+}
+
+o/p:
+2401
+```
+
+#### value parametes
+
+* direct we pass the variables 
+
+```
+using System;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Markup;
+namespace python_life
+{
+    class program
+    {
+       static void values( int a,int b)
+        {
+            Console.WriteLine("sum =" + (a+b));
+        }
+        static void Main(string[] args)
+        {
+            int c = 2, r = 4;
+            values(c,r);
+        }
+            
+
+        }
+    }
+
+o/p:
+sum =6
+```
+#### params parameters
+
+```
+using System;
+
+namespace python_life
+{
+    class Program
+    {
+        // Method to calculate the sum of two numbers
+        static void values(int a, int b)
+        {
+            Console.WriteLine("sum = " + (a + b));
+        }
+
+        // Method to calculate the sum of an arbitrary number of integers
+        static int add(params int[] num)
+        {
+            int s = 0;
+            foreach (int i in num)
+            {
+                s = s + i;
+            }
+            return s;  // Return the sum
+        }
+
+        static void Main(string[] args)
+        {
+            // Call the add method with multiple integers
+            int result = add(1, 5, 4, 7);
+            Console.WriteLine("Total sum: " + result);  // Print the result
+        }
+    }
+}
+
+o/p:
+Total sum: 17
+```
+
 
 ![012](./Images/012.png)
 
@@ -1249,7 +1748,169 @@ Just learning C#
 
 ![021](./Images/021.png)
 
+##### default constructors
+
+```
+using System;
+
+namespace python_life
+{
+    class demo
+    {
+        public demo()
+        {
+            Console.WriteLine("Default constructors");
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("constructors");
+            demo d = new demo();
+            Console.ReadKey();
+        }
+    }
+   
+}
+
+o/p:
+constructors
+Default constructors
+```
+
 ![022](./Images/022.png)
+
+#### parameterized constructors 
+```
+
+using System;
+
+namespace python_life
+{
+    class Demo
+    {
+        // Parameterless constructor (optional)
+        public Demo()
+        {
+            Console.WriteLine("No parameters constructor called.");
+        }
+
+        // Parameterized constructor
+        public Demo(int a, int b)
+        {
+            Console.WriteLine("a + b = " + (a + b));
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Constructors:");
+
+            // Create an instance using the parameterized constructor
+            Demo d = new Demo(2, 4);
+
+            // Optionally, you can create an instance using the parameterless constructor
+            Demo d2 = new Demo();
+
+            Console.ReadKey();
+        }
+    }
+}
+
+
+o/p:
+Constructors:
+a + b = 6
+No parameters constructor c
+```
+#### private constructor 
+
+* method is case sensitive i am facing issue is main not accept , Main
+
+```
+
+using System;
+
+namespace python_life
+{
+    class demo
+    {
+        private demo()
+        {
+            Console.WriteLine("private constructor");
+        }
+        public static void CreateInstance()
+        {
+            demo demoObject = new demo();
+        }
+    }
+        class program
+        {
+            public static void Main(string[] args)
+            {
+                demo.CreateInstance();
+                Console.ReadKey();
+            }
+        }
+     
+    }
+        
+
+
+
+o/p:
+private constructor
+```
+#### copy constructor
+
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace python_life
+{
+    class Program
+    {
+        private string month;
+        private int year;
+        public Program(Program s)
+        {
+            month = s.month;
+            year = s.year;
+        }
+        public Program(string month, int year)
+        {
+            this.month = month;
+            this.year = year;
+        }
+        public string Details
+        {
+            get
+            {
+                return "Month: " + month.ToString() + "\nYear: " + year.ToString();
+            }
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("copyinstructor");
+            Program g1 = new Program("June", 2018);
+            Program g2 = new Program(g1);
+            Console.WriteLine(g2.Details);
+            Console.ReadKey();
+
+        }
+    }
+}
+o/p:
+copyinstructor
+Month: June
+Year: 2018
+```
+* above programe 
+
+* this = keyword
+
+* 2 parameters calls from using one object calls other parameter
+
 
 ![023](./Images/023.png)
 
@@ -1267,7 +1928,6 @@ Just learning C#
 
 ![030](./Images/030.png)
 
-<br>
 
 ![031](./Images/031.png)
 
