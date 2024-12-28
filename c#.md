@@ -2567,6 +2567,180 @@ Sum of two doubles: 31
 ```
 incase sum of doble values is given integers also it;'s working
 
+
+### method overloading
+
+* number of parameters(same signatures , same database , same operatores)
+
+* then create some objects ob.Add(num1,num2)
+
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace MethodOverloading
+{
+    class Csharp
+    {
+        public int Add(int a, int b)
+        {
+            int sum = a + b;
+            return sum;
+        }
+        public int Add(int a, int b, int c)
+        {
+            int sum = a + b + c;
+            return sum;
+        }
+        public static void Main(String[] args)
+        {
+            Csharp ob = new Csharp();
+            int sum1 = ob.Add(1, 2);
+            Console.WriteLine("sum of the two" + "integer value:" +sum1);
+            int sum2 = ob.Add(1, 2, 3);
+            Console.WriteLine("sum of the three" + "integer value" + sum2);
+
+        }
+    }
+}
+o/p:
+sum of the twointeger value:3
+sum of the threeinteger value6
+```
+### method overloading
+
+* number of datatype parameters 
+* c#  not accepted the same name and same return type in  2 times
+ (public int Add(int a, int b, int c))
+
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace MethodOverloading
+{
+    class Csharp
+    {
+        public int Add(int a, int b , int c)
+        {
+            int sum = a + b +c;
+            return sum;
+        }
+        public double Add(double a, double b, double c)
+        {
+            double sum = a + b + c;
+            return sum;
+        }
+        public static void Main(String[] args)
+        {
+            Csharp ob = new Csharp();
+            int sum1 = ob.Add(1, 2 ,3);
+            Console.WriteLine("sum of the two" + "integer value:" +sum1);
+            double sum2 = ob.Add(4, 2, 3);
+            Console.WriteLine("sum of the three" + "integer value" + sum2);
+
+        }
+    }
+}
+o/p:
+sum of the twointeger value:6
+sum of the threeinteger value9
+
+```
+* order of parametes
+
+```
+
+using System;
+using System.Security.AccessControl;
+using Microsoft.VisualBasic;
+
+namespace MethodOverloading
+{
+    class Csharp
+    {
+        public void Add(string b, int a)
+        {
+            Console.WriteLine(a + b);
+        }
+        public void Add(int a , string b)
+        {
+            Console.WriteLine(a + b);
+        }
+        public static void Main(String[] args)
+        {
+            Csharp ob = new Csharp();
+            ob.Add(3, "learn");
+            ob.Add("csharp", 4);            
+
+        }
+    }
+}
+o/p:
+3learn
+4csharp
+```
+
+### operator overloading
+#### binary over load 
+
+* once you check the + replace with - operator it shows error
+
+```
+using System;
+
+namespace OperatorOverloading
+{
+    class Calculator
+    {
+        public int Value { get; set; }
+
+        // Constructor to initialize the Value
+        public Calculator(int value)
+        {
+            Value = value;
+        }
+
+        // Overloading the + operator
+        public static Calculator operator +(Calculator num1, Calculator num2)
+        {
+            // Return a new Calculator object with the sum of the two Values
+            return new Calculator(num1.Value + num2.Value);
+        }
+
+        // Method to display the value of the Calculator object
+        public void Display()
+        {
+            Console.WriteLine("Value: " + Value);
+        }
+
+        public static void Main(string[] args)
+        {
+            // Creating two Calculator objects
+            Calculator num1 = new Calculator(10);
+            Calculator num2 = new Calculator(20);
+
+            // Adding num1 and num2 using overloaded + operator
+            Calculator num3 = num1 + num2;
+
+            // Displaying the result
+            Console.WriteLine("num1 + num2 = ");
+            num3.Display();  // Should print: Value: 30
+        }
+    }
+}
+o/p:
+num1 + num2 =
+Value: 30
+// if you want num1 
+num2 
+values you can  print  those also 
+```
+
 ### unary overloading
 
 ```
@@ -2687,7 +2861,732 @@ o/p:
 Point: (5, 10)
 Point: (3, 4)
 Point: (8, 14)
+
 ```
+### file io 
+
+![070](./Images/070.png)
+
+![071](./Images/071.png)
+
+![072](./Images/072.png)
+
+![073](./Images/073.png)
+
+![074](./Images/074.png)
+
+![075](./Images/075.png)
+
+![076](./Images/076.png)
+
+![077](./Images/077.png)
+
+![078](./Images/078.png)
+
+![079](./Images/079.png)
+
+![080](./Images/080.png)
+
+![081](./Images/081.png)
+
+![082](./Images/082.png)
+
+![083](./Images/083.png)
+
+![084](./Images/084.png)
+
+![085](./Images/085.png)
+
+![086](./Images/086.png)
+
+* we add "namespace fileio" we get error , but we add "Using System.IO" , resolve this issue
+
+```
+using System;
+using System.IO;
+
+namespace fileio
+{
+    class Program
+    {
+        // Method to write data to a file
+        public void DataWriting()
+        {
+            try
+            {
+                string filePath = "E:\\C - sharp\\file.txt";
+                string directoryPath = Path.GetDirectoryName(filePath);
+
+                // Check if the directory exists, create it if not
+                if (!Directory.Exists(directoryPath))
+                {
+                    Console.WriteLine("Directory does not exist. Creating directory...");
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                // Open a stream writer to write to the file
+                using (StreamWriter sw = new StreamWriter(filePath, append: true)) // 'append: true' to add to the file
+                {
+                    // Prompt the user to input text to write into the file
+                    Console.WriteLine("Enter the text you want to insert into the file:");
+                    string str = Console.ReadLine();
+
+                    // Write the input to the file and flush the buffer
+                    sw.WriteLine(str);
+                    sw.Flush(); // Ensure data is written
+                }
+
+                Console.WriteLine("Data has been written to the file.");
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("An error occurred while writing to the file: " + ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                Console.WriteLine("Access denied to the file or directory: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An unexpected error occurred: " + ex.Message);
+            }
+        }
+
+        // Method to read data from a file using StreamReader
+        public void DataReading()
+        {
+            try
+            {
+                string filePath = "E:\\C - sharp\\file.txt";
+
+                // Check if file exists before reading
+                if (File.Exists(filePath))
+                {
+                    StreamReader sr = new StreamReader(filePath);
+                    Console.WriteLine("Content of the file using StreamReader:");
+
+                    string str = sr.ReadLine();
+                    while (str != null)
+                    {
+                        Console.WriteLine(str); // Print each line
+                        str = sr.ReadLine();
+                    }
+                    sr.Close(); // Close the StreamReader
+                }
+                else
+                {
+                    Console.WriteLine("File not found.");
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("An error occurred while reading the file: " + ex.Message);
+            }
+        }
+
+        // Method to read data from a file using FileStream and StreamReader
+        public void FileStreamReading()
+        {
+            try
+            {
+                string filePath = "E:\\C - sharp\\file.txt";
+
+                // Check if file exists before reading
+                if (File.Exists(filePath))
+                {
+                    Console.WriteLine("Data from the file using FileStream:");
+
+                    FileStream fsSource = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+
+                    // Read all the content using StreamReader
+                    using (StreamReader sr = new StreamReader(fsSource))
+                    {
+                        string data = sr.ReadToEnd(); // Read all content from the file
+                        Console.WriteLine(data); // Print the content
+                    }
+
+                    fsSource.Close(); // Close the FileStream
+                }
+                else
+                {
+                    Console.WriteLine("File not found.");
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("An error occurred while reading the file using FileStream: " + ex.Message);
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            // Create an instance of Program class to call its methods
+            Program program = new Program();
+
+            // Call the methods to write, read and display the file content
+            program.DataWriting(); // Write data to file
+            program.DataReading(); // Read and display file content using StreamReader
+            program.FileStreamReading(); // Read and display file content using FileStream
+        }
+    }
+}
+
+o/p:
+Directory does not exist. Creating directory...
+Enter the text you want to insert into the file:
+hai chaitu how are u
+Data has been written to the file.
+Content of the file using StreamReader:
+hai chaitu how are u
+Data from the file using FileStream:
+hai chaitu how are u
+
+
+```
+###  generics
+
+![087](./Images/087.png)
+
+![088](./Images/088.png)
+
+![089](./Images/089.png)
+
+![090](./Images/090.png)
+
+![091](./Images/091.png)
+
+![092](./Images/092.png)
+
+![093](./Images/093.png)
+
+![094](./Images/094.png)
+
+![095](./Images/095.png)
+
+![096](./Images/096.png)
+
+![097](./Images/097.png)
+
+![098](./Images/098.png)
+
+![099](./Images/099.png)
+
+![100](./Images/0100.png)
+
+
+
+```
+using System;
+
+namespace GenericMethodExample
+{
+    class Program
+    {
+        // Generic method to swap two values of any type
+        public static void Swap<T>(ref T value1, ref T value2)
+        {
+            T temp = value1;
+            value1 = value2;
+            value2 = temp;
+        }
+
+        static void Main(string[] args)
+        {
+            int a = 5, b = 10;
+            Console.WriteLine("Before Swap: a = " + a + ", b = " + b);
+            Swap(ref a, ref b);
+            Console.WriteLine("After Swap: a = " + a + ", b = " + b);
+
+            string str1 = "Hello", str2 = "World";
+            Console.WriteLine("\nBefore Swap: str1 = " + str1 + ", str2 = " + str2);
+            Swap(ref str1, ref str2);
+            Console.WriteLine("After Swap: str1 = " + str1 + ", str2 = " + str2);
+        }
+    }
+}
+o/p:
+Before Swap: a = 5, b = 10
+After Swap: a = 10, b = 5
+
+Before Swap: str1 = Hello, str2 = World
+After Swap: str1 = World, str2 = Hello
+```
+###  structure variables 
+
+```
+using System;
+
+namespace struct_enum
+{
+    // Defining the structure
+    public struct Person
+    {
+        public string Name;
+        public int Age;
+        public int Weight;
+    }
+
+    // Enum for Days of the week
+    enum Days { Sun, Mon, Tue, Thur, Fri = 120, Sat = 545 }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Creating an instance of the Person structure and assigning values
+            Person P1;
+            P1.Name = "Hemachaitanya";
+            P1.Age = 30;
+            P1.Weight = 65;
+
+            // Printing the values stored in P1
+            Console.WriteLine("Data stored in P1: Name = {0}, Age = {1}, Weight = {2}", P1.Name, P1.Age, P1.Weight);
+
+            // Using the Days enum and casting it to int to show the underlying values
+            int WeekDayStart = (int)Days.Mon;
+            int WeekDayEnd = (int)Days.Fri;
+
+            Console.WriteLine("Monday: {0}", WeekDayStart);  // Monday has the value 1 (by default)
+            Console.WriteLine("Friday: {0}", WeekDayEnd);   // Friday has the value 120 (as per your custom value)
+
+            Console.ReadKey();
+        }
+    }
+}
+
+o/p:
+Data stored in P1: Name = Hemachaitanya, Age = 30, Weight = 65
+Monday: 1
+Friday: 120
+```
+* above program small cahnge in print statement line 
+
+```
+using System;
+using System.Xml.Linq;
+
+namespace struct_enum
+{
+    // Defining the structure
+    public struct Person
+    {
+        public string Name;
+        public int Age;
+        public int Weight;
+    }
+
+    // Enum for Days of the week
+    enum Days { Sun, Mon, Tue, Thur, Fri = 120, Sat = 545 }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Creating an instance of the Person structure and assigning values
+            Person P1;
+            P1.Name = "Hemachaitanya";
+            P1.Age = 30;
+            P1.Weight = 65;
+
+            // Printing the values stored in P1
+           // Console.WriteLine("Data stored in P1: Name = {0}, Age = {1}, Weight = {2}", P1.Name, P1.Age, P1.Weight);
+            Console.WriteLine("data stored in P1 is "+ P1.Name + ",age is", +  P1.Age + ", P1 weight is " + P1.Weight);
+            // Using the Days enum and casting it to int to show the underlying values
+            int WeekDayStart = (int)Days.Mon;
+            int WeekDayEnd = (int)Days.Fri;
+
+            Console.WriteLine("Monday: {0}", WeekDayStart);  // Monday has the value 1 (by default)
+            Console.WriteLine("Friday: {0}", WeekDayEnd);   // Friday has the value 120 (as per your custom value)
+
+            Console.ReadKey();
+        }
+    }
+}
+
+o/p:
+data stored in P1 is Hemachaitanya,age is
+Monday: 1
+Friday: 120
+```
+* choose one line and cntl+ d "then thatline is copy pasted"
+
+
+
+### Deligates
+
+```
+using System;
+
+namespace DelegateExample
+{
+    // Rectangle class to define properties Length and Width
+    public class Rectangle
+    {
+        public double Length { get; set; }
+        public double Width { get; set; }
+
+        public Rectangle(double length, double width)
+        {
+            Length = length;
+            Width = width;
+        }
+    }
+
+    // Delegate definition
+    public delegate double RectangleOperation(Rectangle rect);
+
+    class Program
+    {
+        // Method to calculate the area of the rectangle
+        public static double CalculateArea(Rectangle rect)
+        {
+            return rect.Length * rect.Width;
+        }
+
+        // Method to calculate the perimeter of the rectangle
+        public static double CalculatePerimeter(Rectangle rect)
+        {
+            return 2 * (rect.Length + rect.Width);
+        }
+
+        static void Main(string[] args)
+        {
+            // Create a Rectangle object
+            Rectangle myRectangle = new Rectangle(5.0, 3.0);
+
+            // Create delegate instances for both operations
+            RectangleOperation areaDelegate = new RectangleOperation(CalculateArea);
+            RectangleOperation perimeterDelegate = new RectangleOperation(CalculatePerimeter);
+
+            // Use delegates to calculate area and perimeter
+            double area = areaDelegate(myRectangle);
+            double perimeter = perimeterDelegate(myRectangle);
+
+            // Display results
+            Console.WriteLine("Rectangle with Length = {0} and Width = {1}", myRectangle.Length, myRectangle.Width);
+            Console.WriteLine("Area: " + area);
+            Console.WriteLine("Perimeter: " + perimeter);
+
+            Console.ReadKey();
+        }
+    }
+}
+o/p:
+Rectangle with Length = 5 and Width = 3
+Area: 15
+Perimeter: 16
+```
+* multi deligates
+
+```
+using System;
+
+namespace MulticastDelegateExample
+{
+    // Rectangle class to define properties Length and Width
+    public class Rectangle
+    {
+        public double Length { get; set; }
+        public double Width { get; set; }
+
+        public Rectangle(double length, double width)
+        {
+            Length = length;
+            Width = width;
+        }
+    }
+
+    // Delegate definition
+    public delegate void RectangleOperations(Rectangle rect);
+
+    class Program
+    {
+        // Method to calculate and display the area of the rectangle
+        public static void CalculateArea(Rectangle rect)
+        {
+            double area = rect.Length * rect.Width;
+            Console.WriteLine("Area: " + area);
+        }
+
+        // Method to calculate and display the perimeter of the rectangle
+        public static void CalculatePerimeter(Rectangle rect)
+        {
+            double perimeter = 2 * (rect.Length + rect.Width);
+            Console.WriteLine("Perimeter: " + perimeter);
+        }
+
+        // Method to calculate and display the diagonal of the rectangle
+        public static void CalculateDiagonal(Rectangle rect)
+        {
+            double diagonal = Math.Sqrt(rect.Length * rect.Length + rect.Width * rect.Width);
+            Console.WriteLine("Diagonal: " + diagonal);
+        }
+
+        static void Main(string[] args)
+        {
+            // Create a Rectangle object
+            Rectangle myRectangle = new Rectangle(5.0, 3.0);
+
+            // Create multicast delegate that combines multiple methods
+            RectangleOperations operations = CalculateArea;
+            operations += CalculatePerimeter;  // Add CalculatePerimeter method to the delegate
+            operations += CalculateDiagonal;   // Add CalculateDiagonal method to the delegate
+
+            // Call the multicast delegate, which will invoke all methods in the invocation list
+            operations(myRectangle);
+
+            Console.ReadKey();
+        }
+    }
+}
+
+o/p:
+Area: 15
+Perimeter: 16
+Diagonal: 5.830951894845301
+```
+
+
+* events 
+
+```
+using System;
+
+namespace EventDelegateExample
+{
+    // Delegate to define the signature of the event handler
+    public delegate void RectangleChangedEventHandler(object sender, EventArgs e);
+
+    // Rectangle class which will publish the event
+    public class Rectangle
+    {
+        private double _length;
+        private double _width;
+
+        // Event declaration using the delegate
+        public event RectangleChangedEventHandler RectangleChanged;
+
+        // Properties for Length and Width with event trigger
+        public double Length
+        {
+            get { return _length; }
+            set
+            {
+                _length = value;
+                OnRectangleChanged(); // Trigger the event when Length changes
+            }
+        }
+
+        public double Width
+        {
+            get { return _width; }
+            set
+            {
+                _width = value;
+                OnRectangleChanged(); // Trigger the event when Width changes
+            }
+        }
+
+        // Method to trigger the event
+        protected virtual void OnRectangleChanged()
+        {
+            // Check if there are any subscribers
+            if (RectangleChanged != null)
+            {
+                // Trigger the event
+                RectangleChanged(this, EventArgs.Empty);
+            }
+        }
+    }
+
+    // Subscriber class to handle the event
+    public class RectangleSubscriber
+    {
+        // Event handler method for handling the event
+        public void OnRectangleChanged(object sender, EventArgs e)
+        {
+            Rectangle rect = sender as Rectangle;
+            if (rect != null)
+            {
+                Console.WriteLine($"Rectangle dimensions changed: Length = {rect.Length}, Width = {rect.Width}");
+            }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a rectangle object
+            Rectangle rect = new Rectangle();
+            
+            // Create a subscriber object
+            RectangleSubscriber subscriber = new RectangleSubscriber();
+
+            // Subscribe to the event
+            rect.RectangleChanged += subscriber.OnRectangleChanged;
+
+            // Modify the properties to trigger the event
+            rect.Length = 5.0;
+            rect.Width = 3.0;
+
+            rect.Length = 10.0; // This will trigger the event again
+
+            Console.ReadKey();
+        }
+    }
+}
+o/p:
+Rectangle dimensions changed: Length = 5, Width = 0
+Rectangle dimensions changed: Length = 5, Width = 3
+Rectangle dimensions changed: Length = 10, Width = 3
+```
+
+### annonumus && lambda
+
+![001](./Images/001.png)
+
+![002](./Images/002.png)
+
+![003](./Images/003.png)
+
+![004](./Images/004.png)
+
+![005](./Images/005.png)
+
+![006](./Images/006.png)
+
+![007](./Images/007.png)
+
+![008](./Images/008.png)
+
+![009](./Images/009.png)
+
+
+```
+using System;
+
+namespace AnonymousMethodPetNames
+{
+    class Program
+    {
+        // Declare a delegate that takes a string parameter (pet name)
+        public delegate void DisplayPetName(string name);
+
+        static void Main(string[] args)
+        {
+            // Anonymous method assigned to the delegate to display pet name
+            DisplayPetName displayDelegate = delegate (string name)
+            {
+                Console.WriteLine("Pet Name: " + name);
+            };
+
+            // Use the delegate to display different pet names
+            displayDelegate("Bella");
+            displayDelegate("Max");
+            displayDelegate("Luna");
+
+            Console.ReadKey();
+        }
+    }
+}
+o/p:
+Pet Name: Bella
+Pet Name: Max
+Pet Name: Luna
+```
+
+* lambda functions 
+```
+using System;
+
+namespace DelegateLambdaSquareExample
+{
+    class Program
+    {
+        // Declare a delegate that takes an int parameter and returns an int
+        public delegate int SquareDelegate(int num);
+
+        static void Main(string[] args)
+        {
+            // Use a lambda expression to define the square calculation
+            SquareDelegate square = (num) => num * num;
+
+            // Test the delegate with different values
+            int number1 = 5;
+            int number2 = 10;
+            int number3 = 3;
+
+            Console.WriteLine($"The square of {number1} is: {square(number1)}");
+            Console.WriteLine($"The square of {number2} is: {square(number2)}");
+            Console.WriteLine($"The square of {number3} is: {square(number3)}");
+
+            Console.ReadKey();
+        }
+    }
+}
+o/p:
+The square of 5 is: 25
+The square of 10 is: 100
+The square of 3 is: 9
+```
+* 
+
+```
+using System;
+using System.Collections.Generic;
+
+namespace ForEachLambdaComplexExample
+{
+    // Define a simple class for Pet
+    class Pet
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    class Program
+    {
+        // Declare a delegate to process pet names
+        public delegate void ProcessPetDelegate(Pet pet);
+
+        static void Main(string[] args)
+        {
+            // Create a list of pets
+            List<Pet> pets = new List<Pet>
+            {
+                new Pet { Name = "Bella", Age = 3 },
+                new Pet { Name = "Max", Age = 5 },
+                new Pet { Name = "Luna", Age = 2 },
+                new Pet { Name = "Charlie", Age = 4 }
+            };
+
+            // Lambda expression to process pet names and print the name and age
+            ProcessPetDelegate processPet = (pet) =>
+            {
+                Console.WriteLine($"Pet Name: {pet.Name}, Age: {pet.Age}");
+            };
+
+            // Use foreach loop to iterate through the list of pets and apply the lambda expression
+            foreach (Pet pet in pets)
+            {
+                processPet(pet); // Delegate invocation inside the loop
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
+o/p:
+Pet Name: Bella, Age: 3
+Pet Name: Max, Age: 5
+Pet Name: Luna, Age: 2
+Pet Name: Charlie, Age: 4
+```
+
+
+
+
 
 
 
