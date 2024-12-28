@@ -3584,6 +3584,195 @@ Pet Name: Luna, Age: 2
 Pet Name: Charlie, Age: 4
 ```
 
+### Collections
+
+* C# offers a variety of collections to manage data efficiently. Here's a recap of the collection types:
+
+        Arrays: Fixed-size, homogeneous collections.
+        List<T>: Dynamic array-like collection for adding/removing elements.
+        Dictionary<TKey, TValue>: Stores key-value pairs.
+        Queue<T>: FIFO (First In First Out) collection.
+        Stack<T>: LIFO (Last In First Out) collection.
+        HashSet<T>: Stores unique elements (no duplicates).
+##### array
+    
+    * Arrays are the simplest form of collections, where all elements are stored in contiguous memory locations and are of the same type.
+```
+using System;
+
+namespace CollectionExamples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declare an array
+            int[] numbers = { 1, 2, 3, 4, 5 };
+
+            // Access elements of the array
+            foreach (int number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+    }
+}
+o/p:
+
+```
+##### List<T>
+
+List<T> is a generic collection in C# that provides flexibility in terms of adding, removing, and accessing elements dynamically.
+```
+using System;
+using System.Collections.Generic;
+
+namespace CollectionExamples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declare a List
+            List<int> numbersList = new List<int> { 1, 2, 3, 4, 5 };
+
+            // Add a new element
+            numbersList.Add(6);
+
+            // Access elements
+            foreach (int number in numbersList)
+            {
+                Console.WriteLine(number);
+            }
+        }
+    }
+}
+o/p:
+```
+##### Dictionary<TKey, TValue>
+
+* A Dictionary<TKey, TValue> stores key-value pairs, making it useful when you need to map keys to values.
+
+```
+using System;
+using System.Collections.Generic;
+
+namespace CollectionExamples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declare a Dictionary
+            Dictionary<int, string> students = new Dictionary<int, string>
+            {
+                { 1, "Alice" },
+                { 2, "Bob" },
+                { 3, "Charlie" }
+            };
+
+            // Access elements by key
+            foreach (var student in students)
+            {
+                Console.WriteLine($"ID: {student.Key}, Name: {student.Value}");
+            }
+        }
+    }
+}
+```
+##### Queue<T>
+
+A Queue<T> represents a first-in, first-out (FIFO) collection, meaning elements are processed in the order they are added.
+
+```
+using System;
+using System.Collections.Generic;
+
+namespace CollectionExamples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declare a Queue
+            Queue<string> queue = new Queue<string>();
+
+            // Add elements
+            queue.Enqueue("Alice");
+            queue.Enqueue("Bob");
+            queue.Enqueue("Charlie");
+
+            // Process elements in FIFO order
+            while (queue.Count > 0)
+            {
+                Console.WriteLine(queue.Dequeue());
+            }
+        }
+    }
+}
+```
+##### HashSet<T>
+A HashSet<T> is a collection that only stores unique elements. It automatically eliminates duplicates.
+
+```
+using System;
+using System.Collections.Generic;
+
+namespace CollectionExamples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declare a HashSet
+            HashSet<int> uniqueNumbers = new HashSet<int>();
+
+            // Add elements
+            uniqueNumbers.Add(1);
+            uniqueNumbers.Add(2);
+            uniqueNumbers.Add(2); // Duplicate, won't be added
+            uniqueNumbers.Add(3);
+
+            // Access elements
+            foreach (int number in uniqueNumbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+    }
+}
+```
+#####  LinkedList<T>
+* A LinkedList<T> is a collection that consists of nodes, where each node points to the next node in the sequence. This is useful for adding or removing elements at both ends of the collection.
+
+```
+using System;
+using System.Collections.Generic;
+
+namespace CollectionExamples
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Declare a LinkedList
+            LinkedList<string> list = new LinkedList<string>();
+
+            // Add elements to the list
+            list.AddLast("Alice");
+            list.AddLast("Bob");
+            list.AddFirst("Charlie");
+
+            // Access elements
+            foreach (string name in list)
+            {
+                Console.WriteLine(name);
+            }
+        }
+    }
+}
+```
+
 
 
 
