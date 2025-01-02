@@ -1,5 +1,159 @@
 ![1](./Images/1.png)
 
+## types of c#
+
+1. value or null type
+
+* if we want to change inull , true or false we get the values 
+
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+    class Program
+    {
+        static void Main()
+        {
+            bool? AreYouMajor = false;
+            if (AreYouMajor == true)
+            {
+                Console.WriteLine("user is major");     
+            }
+            else if (AreYouMajor == false)
+                {
+                Console.WriteLine("user is not major");
+            }
+            else
+            {
+                Console.WriteLine("user is DispIdAttribute not answer the question");
+            }
+
+        }
+    }
+}
+```
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+    class Program
+    {
+        static void Main()
+        {
+            int? TicketOnSale = 100;
+            int AvailableTickets = TicketOnSale ?? 0;
+            //int AvailableTickets;
+            //if (TicketOnSale != null)
+            //{
+            //    AvailableTickets = 0;
+            //}
+            //else
+            //{
+            //    AvailableTickets = (int)TicketOnSale;
+            //}
+            Console.WriteLine("Available tickets ={0}" , AvailableTickets);
+        }
+    }
+}
+```
+### types of data conversion
+
+* impliciteconverasation
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+    class Program
+    {
+        static void Main()
+        {
+            int i =10 ;
+            float f = i;
+            Console.WriteLine(f);
+        }
+     
+    }
+}
+```
+* explicity conversation
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+    class Program
+    {
+        static void Main()
+        {
+            string strNumber = "100";
+            int i = int.Parse(strNumber);
+            Console.WriteLine(i);
+            string stgNumber1 = "9985";
+            //string stgNumber1 = "100TB";
+            int result = 0;
+            bool IsConversionSuccecessful = int.TryParse(stgNumber1, out result);
+            if(IsConversionSuccecessful)
+            {
+                Console.WriteLine(result);
+            }
+            else
+            {
+                Console.WriteLine("please enter a valid number");
+            }
+
+
+
+        }
+    }
+}
+```
+### 
+array
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+    class Program
+    {
+        static void Main()
+        {
+            int[] EvenNumbers = new int[3];
+            EvenNumbers[0] = 1;
+            EvenNumbers[1] = 2;
+            EvenNumbers[2] = 199;
+            Console.WriteLine(EvenNumbers[1]);
+        }
+    }
+}
+```
+### single and mulutiline comments (cntl=k;cntl+u;cntl+c)
+
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+   // class Program
+    {
+        static void Main()
+        {
+           /* int[] EvenNumbers = new int[3];
+            EvenNumbers[0] = 1;
+            EvenNumbers[1] = 2;
+            EvenNumbers[2] = 199;
+            Console.WriteLine(EvenNumbers[1]);*/
+        }
+    }
+}
+```
+
+
+2. reference or non nullable type
+
 ![2](./Images/2.png)
 
 ![3](./Images/3.png)
