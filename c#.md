@@ -255,6 +255,57 @@ namespace MyApp
 }
 ```
 
+### for loop
+
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+    class Program
+    {
+        static void Main()
+        {
+            for (int  i=0; i<=20; i++)
+            {
+                if(i%2 == 1)
+                    continue;
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+```
+### accessability
+
+```
+using System;
+using System.Runtime.InteropServices;
+namespace typesofcsharp
+{
+    class Program
+    {
+        public static void Main()
+        {
+            Program.EvenNumbers();
+            
+            }
+        public static void EvenNumbers()
+        {
+            int Start = 0;
+            while(Start <=20)
+            {
+                Console.WriteLine(Start);
+                Start = Start + 2;
+            }
+
+        }
+
+        }
+    }
+```
+
+
 ![17](./Images/17.png)
 
 ![18](./Images/18.png)
