@@ -16,4 +16,22 @@ after that we  have some push image command we use pull
 
 * docker history <repo-name>:<image tag>
 
+#### npm lifecycle
+
+npminstall -g@angular/cli (used to install npm)
+
+•npmuninstall -g @angular/cli (used to uninstall)
+
+•npmcache clean –force (used to clean cache)
+
+•ng build –prod (to check the build errors)
+
+•ng serve (to run the application)
+
+•ng add @angular/material@7.1.0 (to add angular material)
+
+•Ng new my-component-project (to create the new component file)
+
+•npminstall --global --production windows-build-tools
+
 
