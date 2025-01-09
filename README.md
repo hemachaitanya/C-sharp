@@ -18,6 +18,12 @@ after that we  have some push image command we use pull
 
 #### npm lifecycle
 
+* npm version
+
+* ng version
+
+* node version
+
 npminstall -g@angular/cli (used to install npm)
 
 •npmuninstall -g @angular/cli (used to uninstall)
